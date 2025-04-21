@@ -3,21 +3,16 @@
 import * as React from "react"
 import {
   IconCamera,
-  IconChartBar,
   IconDashboard,
-  IconDatabase,
   IconFileAi,
   IconFileDescription,
-  IconFileWord,
-  IconFolder,
-  IconHelp,
   IconInnerShadowTop,
   IconListDetails,
   IconReport,
-  IconSearch,
   IconSettings,
   IconUsers,
 } from "@tabler/icons-react"
+import { ChartCandlestick, UserRoundPen, HandCoins, BanknoteArrowUp } from 'lucide-react';
 
 import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
@@ -46,22 +41,22 @@ const data = {
       icon: IconDashboard,
     },
     {
-      title: "Lifecycle",
+      title: "Portafolios",
+      url: "#",
+      icon:  ChartCandlestick,
+    },
+    {
+      title: "Dividendos",
+      url: "#",
+      icon: BanknoteArrowUp,
+    },
+    {
+      title: "Objetivos",
       url: "#",
       icon: IconListDetails,
     },
     {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartBar,
-    },
-    {
-      title: "Projects",
-      url: "#",
-      icon: IconFolder,
-    },
-    {
-      title: "Team",
+      title: "Profesionales",
       url: "#",
       icon: IconUsers,
     },
@@ -116,37 +111,27 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Settings",
+      title: "Configuración",
       url: "#",
       icon: IconSettings,
     },
     {
-      title: "Get Help",
+      title: "Contacto",
       url: "#",
-      icon: IconHelp,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: IconSearch,
-    },
+      icon: UserRoundPen,
+    }
   ],
   documents: [
     {
-      name: "Data Library",
+      name: "Rendimientos",
       url: "#",
-      icon: IconDatabase,
+      icon: HandCoins,
     },
     {
-      name: "Reports",
+      name: "Alertas",
       url: "#",
       icon: IconReport,
-    },
-    {
-      name: "Word Assistant",
-      url: "#",
-      icon: IconFileWord,
-    },
+    }
   ],
 }
 
