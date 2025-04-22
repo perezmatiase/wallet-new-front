@@ -12,7 +12,7 @@ import {
   IconSettings,
   IconUsers,
 } from "@tabler/icons-react"
-import { ChartCandlestick, UserRoundPen, HandCoins, BanknoteArrowUp } from 'lucide-react';
+import { ChartCandlestick, UserRoundPen, HandCoins, BanknoteArrowUp, RssIcon } from 'lucide-react';
 
 import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
@@ -32,7 +32,7 @@ import { GalleryVerticalEnd } from "lucide-react"
 const data = {
   user: {
     name: "shadcn",
-    email: "m@example.com",
+    email: "perezmatiase@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
@@ -60,6 +60,11 @@ const data = {
       title: "Profesionales",
       url: "#",
       icon: IconUsers,
+    },
+    {
+      title: "Noticias",
+      url: "#",
+      icon: RssIcon,
     },
   ],
   navClouds: [
