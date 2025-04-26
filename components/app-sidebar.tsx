@@ -2,15 +2,12 @@
 
 import * as React from "react"
 import {
-  IconCamera,
   IconDashboard,
-  IconFileAi,
-  IconFileDescription,
-  IconInnerShadowTop,
   IconListDetails,
   IconReport,
   IconSettings,
   IconUsers,
+  IconUserSquare,
 } from "@tabler/icons-react"
 import { ChartCandlestick, UserRoundPen, HandCoins, BanknoteArrowUp, RssIcon } from 'lucide-react';
 
@@ -47,11 +44,6 @@ const data = {
       icon: ChartCandlestick,
     },
     {
-      title: "Dividendos",
-      url: "#",
-      icon: BanknoteArrowUp,
-    },
-    {
       title: "Objetivos",
       url: "#",
       icon: IconListDetails,
@@ -60,60 +52,7 @@ const data = {
       title: "Profesionales",
       url: "#",
       icon: IconUsers,
-    },
-    {
-      title: "Noticias",
-      url: "#",
-      icon: RssIcon,
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: IconCamera,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: IconFileDescription,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Prompts",
-      icon: IconFileAi,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
+    }
   ],
   navSecondary: [
     {
@@ -127,17 +66,32 @@ const data = {
       icon: UserRoundPen,
     }
   ],
-  documents: [
+  advancedTools: [
+    {
+      name: "Salud Financiera",
+      url: "#",
+      icon: IconUserSquare,
+    },
     {
       name: "Rendimientos",
       url: "#",
       icon: HandCoins,
     },
     {
+      name: "Dividendos",
+      url: "#",
+      icon: BanknoteArrowUp,
+    },
+    {
       name: "Alertas",
       url: "#",
       icon: IconReport,
-    }
+    },
+    {
+      name: "Noticias",
+      url: "#",
+      icon: RssIcon,
+    },
   ],
 }
 
@@ -165,7 +119,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+        <NavDocuments items={data.advancedTools} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>

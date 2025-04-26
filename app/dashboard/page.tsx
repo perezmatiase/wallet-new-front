@@ -8,9 +8,9 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-import data from "./data.json"
 import { PortfolioPieChart } from "@/components/PortfolioPieChart"
 import { PortfolioTable } from "@/components/portfolioTable"
+import TransactionsTable from "@/components/transacciones-table"
 
 const mockPortfolios = [
   {
@@ -97,12 +97,15 @@ export default function Page() {
               </div>
 
 
-        
+              <div className="grid grid-cols-1 gap-6 px-4 lg:px-6">
+                <TransactionsTable></TransactionsTable>
+              </div>
               {/* <div className="px-4 lg:px-6">
                 <ChartAreaInteractive />
               </div> 
-              <DataTable data={data} />
-   */}
+
+                <DataTable data={data} />*/}
+
             </div>
           </div>
         </div>

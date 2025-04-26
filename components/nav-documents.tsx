@@ -1,6 +1,7 @@
 "use client"
 
 import {
+  IconAlienFilled,
   IconDots,
   IconFolder,
   IconShare3,
@@ -38,7 +39,7 @@ export function NavDocuments({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Análisis de Operaciones</SidebarGroupLabel>
+      <SidebarGroupLabel>Herramientas Avanzadas</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
@@ -54,8 +55,8 @@ export function NavDocuments({
                   showOnHover
                   className="data-[state=open]:bg-accent rounded-sm"
                 >
+                  <IconAlienFilled></IconAlienFilled>
                   <IconDots />
-                  <span className="sr-only">More222</span>
                 </SidebarMenuAction>
               </DropdownMenuTrigger>
               <DropdownMenuContent
