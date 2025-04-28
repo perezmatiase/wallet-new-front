@@ -1,94 +1,101 @@
-import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react"
+'use client'
 
-import { Badge } from "@/components/ui/badge"
+import { useEffect, useState } from "react";
+import api from "@/lib/axios"; //
 import {
   Card,
-  CardAction,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 export function SectionCards() {
+  const [values, setValues] = useState({
+    totalWealth: 0,
+    totalInvested: 0,
+    totalGains: 0,
+    liquidMoney: 0,
+  });
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const userId = '2de06395-4222-4425-a494-7cb522927765';
+        const response = await api.get(`/api/dashboard/${userId}`);
+        
+        setValues({
+          totalWealth: response.data.price,
+          totalInvested: response.data.price,
+          totalGains: response.data.price,
+          liquidMoney: response.data.price,
+        });
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+      }
+    }
+    
+
+    fetchData();
+  }, []);
+
   return (
     <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Monto en Inversiones</CardDescription>
+          <CardDescription>Patrimonio Tota (ARS)</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            $1,250.00
+            ${values.totalWealth.toLocaleString()}
           </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              <IconTrendingUp />
-              +12.5%
-            </Badge>
-          </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="text-muted-foreground">
-            Monto total invertido: $1,000.00
+            Monto total invertido: ${values.totalInvested.toLocaleString()}
           </div>
         </CardFooter>
       </Card>
+
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Ganancias Totales</CardDescription>
+          <CardDescription>Ganancias Totales (ARS)</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            $1,250.00
+            ${values.totalGains.toLocaleString()}
           </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              <IconTrendingUp />
-              +12.5%
-            </Badge>
-          </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="text-muted-foreground">
-            Monto total invertido: $1,000.00
+            Monto total invertido: ${values.totalInvested.toLocaleString()}
           </div>
         </CardFooter>
       </Card>
+
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Dinero Liquido</CardDescription>
+          <CardDescription>Dinero Líquido (ARS)</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            $1,250.00
+            ${values.liquidMoney.toLocaleString()}
           </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              <IconTrendingUp />
-              +12.5%
-            </Badge>
-          </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="text-muted-foreground">
-            Monto total invertido: $1,000.00
+            Monto total invertido: ${values.totalInvested.toLocaleString()}
           </div>
         </CardFooter>
       </Card>
+
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Monto en Inversiones</CardDescription>
+          <CardDescription>Monto en Inversiones (ARS)</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            $1,250.00
+            ${values.totalInvested.toLocaleString()}
           </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              <IconTrendingUp />
-              +12.5%
-            </Badge>
-          </CardAction>
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="text-muted-foreground">
-            Monto total invertido: $1,000.00
+            Monto total invertido: ${values.totalInvested.toLocaleString()}
           </div>
         </CardFooter>
       </Card>
     </div>
-  )
+  );
 }

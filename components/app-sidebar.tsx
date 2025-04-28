@@ -35,22 +35,22 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
       title: "Portafolios",
-      url: "#",
+      url: "/portfolios",
       icon: ChartCandlestick,
     },
     {
       title: "Objetivos",
-      url: "#",
+      url: "/goals",
       icon: IconListDetails,
     },
     {
       title: "Profesionales",
-      url: "#",
+      url: "/professionals",
       icon: IconUsers,
     }
   ],
