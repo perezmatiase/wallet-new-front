@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Link from 'next/link'
 import {
   IconDashboard,
   IconListDetails,
@@ -57,12 +58,12 @@ const data = {
   navSecondary: [
     {
       title: "Configuración",
-      url: "#",
+      url: "/settings",
       icon: IconSettings,
     },
     {
       title: "Contacto",
-      url: "#",
+      url: "/contact",
       icon: UserRoundPen,
     }
   ],
@@ -103,7 +104,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <Link href="/">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <GalleryVerticalEnd className="size-4" />
                 </div>
@@ -111,7 +112,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <span className="font-semibold">Fintrack</span>
                   <span className="">Licencia Básica</span>
                 </div>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
