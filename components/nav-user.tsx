@@ -29,6 +29,23 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
+function handleLogout() {
+  fetch('http://localhost:8080/api/auth/logout', { // ajusta el puerto si tu backend es otro
+    method: 'POST',
+    credentials: 'include' // 🔥 importante para que mande la cookie
+  })
+    .then(res => {
+      if (res.ok) {
+        window.location.href = '/login'
+      } else {
+        console.error('Error al cerrar sesión')
+      }
+    })
+    .catch(err => console.error('Error:', err))
+}
+
+
+
 export function NavUser({
   user,
 }: {
@@ -98,7 +115,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleLogout}>
               <IconLogout />
               Log out
             </DropdownMenuItem>
