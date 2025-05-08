@@ -21,7 +21,7 @@ interface PortfolioTableProps {
 
 export function PortfolioTable({ data }: PortfolioTableProps) {
   return (
-    <Card>
+    <Card className="h-full flex flex-col">
       <CardHeader>
         <CardTitle>Portafolios</CardTitle>
       </CardHeader>

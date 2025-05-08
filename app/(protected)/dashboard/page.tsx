@@ -1,6 +1,7 @@
 import { SectionCards } from "@/components/section-cards"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Heart } from "lucide-react";
+import { AssetHighlights } from "@/components/asset-highlights";
 import { UpcomingEvents } from "@/components/upcoming-events";
 import { PortfolioTable } from "@/components/portfolioTable"
 import { Objectives } from "@/components/objetives";
@@ -92,72 +93,23 @@ export default function DashboardPage() {
   return (
     <>
       <SectionCards />
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-4 lg:px-6">
-        <div className="lg:col-span-2">
-          <PortfolioTable data={mockPortfolios} />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 px-4 lg:px-6 min-h-[100px]">
+        <div className="lg:col-span-2 h-full">
+          <div className="h-full">
+            <PortfolioTable data={mockPortfolios} />
+          </div>
         </div>
-        <div className="lg:col-span-1">
-          <div className="rounded-xl border bg-card text-card-foreground shadow-sm p-4 max-w-md mx-auto">
-            <Tabs defaultValue="topVariation" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="topVariation">Variación</TabsTrigger>
-                <TabsTrigger value="topPerformance">Rendimientos</TabsTrigger>
-                <TabsTrigger value="favorites" className="flex items-center justify-center gap-1">
-                  <Heart className="w-4 h-4" /> Favoritos
-                </TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="topVariation">
-                <div className="bg-muted rounded-xl p-4 space-y-2">
-                  {mockAssets.topVariation.map((asset) => (
-                    <div key={asset.id} className="flex justify-between items-center py-2 border-b last:border-b-0">
-                      <span className="font-medium">{asset.name}</span>
-                      <div className="text-right">
-                        <p className="text-sm">${asset.price.toLocaleString()}</p>
-                        <p className={`text-xs font-medium ${asset.variation >= 0 ? "text-green-600" : "text-red-600"}`}>
-                          {asset.variation}%
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-
-              <TabsContent value="topPerformance">
-                <div className="bg-muted rounded-xl p-4 space-y-2">
-                  {mockAssets.topPerformance.map((asset) => (
-                    <div key={asset.id} className="flex justify-between items-center py-2 border-b last:border-b-0">
-                      <span className="font-medium">{asset.name}</span>
-                      <div className="text-right">
-                        <p className="text-sm">${asset.price.toLocaleString()}</p>
-                        <p className={`text-xs font-medium ${asset.variation >= 0 ? "text-green-600" : "text-red-600"}`}>
-                          {asset.variation}%
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-
-              <TabsContent value="favorites">
-                <div className="bg-muted rounded-xl p-4 space-y-2">
-                  {mockAssets.favorites.map((asset) => (
-                    <div key={asset.id} className="flex justify-between items-center py-2 border-b last:border-b-0">
-                      <span className="font-medium">{asset.name}</span>
-                      <div className="text-right">
-                        <p className="text-sm">${asset.price.toLocaleString()}</p>
-                        <p className={`text-xs font-medium ${asset.variation >= 0 ? "text-green-600" : "text-red-600"}`}>
-                          {asset.variation}%
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-            </Tabs>
+        <div className="lg:col-span-1 h-full">
+          <div className="h-full">
+            <AssetHighlights
+              topVariation={mockAssets.topVariation}
+              topPerformance={mockAssets.topPerformance}
+              favorites={mockAssets.favorites}
+            />
           </div>
         </div>
       </div>
+
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-4 lg:px-6">
         <div className="lg:col-span-2">
@@ -167,7 +119,7 @@ export default function DashboardPage() {
 
 
         <div className="lg:col-span-2">
-        <Objectives objectives={objectives} title="Objetivos de Abril" />
+          <Objectives objectives={objectives} title="Objetivos de Abril" />
 
         </div>
       </div>
