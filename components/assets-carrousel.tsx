@@ -3,9 +3,7 @@
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface Asset {
   id: string;

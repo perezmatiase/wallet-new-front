@@ -5,24 +5,29 @@ import { UpcomingEvents } from "@/components/upcoming-events";
 import { PortfolioTable } from "@/components/portfolioTable"
 import { Objectives } from "@/components/objetives";
 
+const objectives2 = [];
 const objectives = [
-  {
-    type: "boolean",
-    title: "Transferir dinero antes del día 5",
-    achieved: true,
-  },
-  {
-    type: "progress",
-    title: "Ganar 10 USD este mes",
-    current: 7.5,
-    goal: 10,
-  },
   {
     type: "boolean",
     title: "Revisar portafolio con el asesor",
     achieved: false,
+    priority: 2,
+  },
+  {
+    type: "progress",
+    title: "Ganar 10 USD este mes",
+    current: 1,
+    goal: 10,
+    priority: 1,
+  },
+  {
+    type: "boolean",
+    title: "Transferir dinero antes del día 5",
+    achieved: true,
+    priority: 3,
   },
 ];
+
 
 const mockPortfolios = [
   {
