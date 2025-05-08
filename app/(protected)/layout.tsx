@@ -1,7 +1,6 @@
 // app/(protected)/layout.tsx
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
@@ -11,7 +10,7 @@ export default async function ProtectedLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = cookies()
+  const cookieStore = await cookies(); // 👈 necesario el await
   const token = cookieStore.get('access-token')
 
   if (!token) {
