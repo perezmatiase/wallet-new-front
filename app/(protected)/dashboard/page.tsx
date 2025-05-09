@@ -1,6 +1,4 @@
 import { SectionCards } from "@/components/section-cards"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Heart } from "lucide-react";
 import { AssetHighlights } from "@/components/asset-highlights";
 import { UpcomingEvents } from "@/components/upcoming-events";
 import { PortfolioTable } from "@/components/portfolioTable"
@@ -111,9 +109,8 @@ export default function DashboardPage() {
       </div>
 
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-4 lg:px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-4 lg:px-6 min-h-[100px]">
         <div className="lg:col-span-2">
-          <h2 className="text-xl font-bold mb-4">Próximos eventos</h2>
           <UpcomingEvents events={events} />
         </div>
 
@@ -122,6 +119,7 @@ export default function DashboardPage() {
           <Objectives objectives={objectives} title="Objetivos de Abril" />
 
         </div>
+        
       </div>
 
     </>

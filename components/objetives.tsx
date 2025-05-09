@@ -38,7 +38,7 @@ export function Objectives({ objectives, title = "Objetivos del mes" }: Objectiv
 
   if (sortedObjectives.length === 0) {
     return (
-      <Card>
+      <Card className="h-full flex flex-col">
         <CardHeader>
           <CardTitle>{title}</CardTitle>
         </CardHeader>
@@ -52,7 +52,7 @@ export function Objectives({ objectives, title = "Objetivos del mes" }: Objectiv
   }
 
   return (
-    <Card>
+    <Card className="h-full flex flex-col">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
